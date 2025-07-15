@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Expiration Tracker</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#007bff">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Expiration Tracker</h1>
+    <button id="toggleDarkMode">🌙 Toggle Dark Mode</button>
+
+    <form id="itemForm">
+      <select id="department" required>
+        <option value="" disabled selected>Select Department</option>
+        <option>Produce</option><option>Bakery</option>
+        <option>Dairy</option><option>Meat</option><option>Beverages</option>
+      </select>
+      <input list="suggestions" id="itemName" placeholder="Item Name" required>
+      <datalist id="suggestions"></datalist>
+
+      <input type="date" id="expirationDate" required>
+      <button type="submit">Add Item</button>
+    </form>
+
+    <div class="controls">
+      <select id="filterBy">
+        <option value="all">All</option>
+        <option value="soon">Expiring Soon</option>
+        <option value="expired">Expired</option>
+        <option value="safe">Safe</option>
+      </select>
+      <select id="sortBy">
+        <option value="name">Name</option>
+        <option value="date">Expiration Date</option>
+        <option value="department">Department</option>
+      </select>
+      <button id="exportBtn">Export JSON</button>
+      <input type="file" id="importFile" accept=".json">
+      <button id="clearArchive">Clear Archive</button>
+    </div>
+
+    <div id="itemList"></div>
+    <h2>Analytics</h2>
+    <canvas id="chart"></canvas>
+    <div id="scanner"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
